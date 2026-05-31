@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plaza Latina — Where Culture Lives</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #1a1a1a;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 40px;
+      border-bottom: 1px solid #e5e7eb;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 900;
+      color: #1a1a1a;
+      text-decoration: none;
+    }
+    .logo span { color: #C8501A; }
+    .nav-links { display: flex; gap: 28px; }
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 600;
+      color: #374151;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #185FA5; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .lang-toggle { display: flex; gap: 6px; }
+    .lang-btn {
+      background: transparent;
+      border: 1.5px solid #d1d5db;
+      border-radius: 5px;
+      padding: 5px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #6b7280;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn.active { border-color: #185FA5; color: #185FA5; }
+    .btn-nav {
+      background: #C8501A;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 11px 22px;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-nav:hover { background: #a83f14; }
+
+    /* ── HERO ── */
+    .hero {
+      background: #1a4a7a;
+      padding: 72px 40px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-deco {
+      position: absolute;
+      right: 40px;
+      top: 40px;
+      opacity: 0.07;
+      pointer-events: none;
+    }
+    .hero-badge {
+      background: #C8501A;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      padding: 9px 20px;
+      border-radius: 5px;
+      margin-bottom: 28px;
+      display: inline-block;
+    }
+    .brand-plaza {
+      font-family: 'Playfair Display', serif;
+      font-size: 96px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      display: block;
+    }
+    .brand-latina {
+      font-family: 'Playfair Display', serif;
+      font-size: 96px;
+      font-weight: 900;
+      color: #EF9F27;
+      line-height: 1;
+      display: block;
+    }
+    .brand-rule {
+      width: 80px;
+      height: 4px;
+      background: #C8501A;
+      border-radius: 2px;
+      margin: 22px 0 20px;
+    }
+    .hero-tagline {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 18px;
+    }
+    .hero-tagline em { color: #EF9F27; font-style: normal; }
+    .hero-sub {
+      font-size: 18px;
+      color: #fff;
+      line-height: 1.75;
+      max-width: 520px;
+      margin-bottom: 32px;
+    }
+    .hero-meta {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+      margin-bottom: 36px;
+    }
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 17px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .meta-item i { color: #EF9F27; font-size: 20px; }
+    .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+    .btn-gold {
+      background: #EF9F27;
+      color: #fff;
+      border: 3px solid #EF9F27;
+      border-radius: 9px;
+      padding: 18px 34px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-gold:hover { background: #d4881f; border-color: #d4881f; }
+    .btn-white-outline {
+      background: transparent;
+      color: #fff;
+      border: 3px solid #fff;
+      border-radius: 9px;
+      padding: 18px 34px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-white-outline:hover { background: rgba(255,255,255,0.12); }
+
+    /* ── INFO STRIP ── */
+    .strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .strip-item {
+      padding: 24px 28px;
+      border-right: 1px solid #e5e7eb;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .strip-item:last-child { border-right: none; }
+    .strip-icon { font-size: 26px; color: #185FA5; margin-top: 2px; }
+    .strip-lbl {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #6b7280;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    .strip-val { font-size: 16px; font-weight: 700; color: #1a1a1a; }
+
+    /* ── SHARED SECTION STYLES ── */
+    .sec { padding: 64px 40px; }
+    .sec-dark { background: #0F3460; padding: 64px 40px; }
+    .sec-light-blue { background: #E6F1FB; padding: 64px 40px; }
+    .sec-tag {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .tag-blue { color: #185FA5; }
+    .tag-gold { color: #EF9F27; }
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: #1a1a1a;
+    }
+    .sec-title em { color: #C8501A; font-style: normal; }
+    .sec-title-white {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      color: #fff;
+    }
+    .sec-title-white em { color: #EF9F27; font-style: normal; }
+    .sec-title-dark { color: #0C2340; }
+    .sec-body { font-size: 17px; color: #4b5563; line-height: 1.75; }
+    .sec-body-white { font-size: 17px; color: rgba(255,255,255,0.88); line-height: 1.75; }
+    .divider { height: 1px; background: #e5e7eb; margin: 0 40px; }
+
+    /* ── BUTTONS ── */
+    .btn-blue {
+      background: #185FA5;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 15px 28px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-blue:hover { background: #0e4a82; }
+    .btn-outline-blue {
+      background: transparent;
+      color: #185FA5;
+      border: 2.5px solid #185FA5;
+      border-radius: 8px;
+      padding: 14px 26px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-outline-blue:hover { background: #E6F1FB; }
+    .btn-outline-white {
+      background: transparent;
+      color: #fff;
+      border: 2.5px solid #fff;
+      border-radius: 8px;
+      padding: 14px 26px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,0.1); }
+    .btn-orange {
+      background: #C8501A;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 15px 28px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-orange:hover { background: #a83f14; }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+    }
+    .about-img {
+      background: #0F3460;
+      border-radius: 16px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* ── PILLARS ── */
+    .pillars-wrap { padding: 0 40px 64px; }
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 8px;
+    }
+    .pillar {
+      border: 1.5px solid #d1d5db;
+      border-radius: 14px;
+      padding: 28px 24px;
+    }
+    .pillar-icon { font-size: 30px; color: #185FA5; margin-bottom: 14px; display: block; }
+    .pillar-title { font-size: 19px; font-weight: 700; margin-bottom: 10px; color: #1a1a1a; }
+    .pillar-body { font-size: 16px; color: #4b5563; line-height: 1.65; }
+
+    /* ── CATEGORIES ── */
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .cat-card {
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      border-radius: 14px;
+      padding: 24px 18px;
+      text-align: center;
+      transition: background 0.2s;
+    }
+    .cat-card:hover { background: rgba(255,255,255,0.16); }
+    .cat-icon { font-size: 28px; color: #EF9F27; margin-bottom: 12px; display: block; }
+    .cat-name { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .cat-desc { font-size: 14px; color: rgba(255,255,255,0.78); line-height: 1.5; }
+
+    /* ── VENDOR DIRECTORY ── */
+    .filter-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 22px 0 30px;
+    }
+    .filter-btn {
+      background: #f3f4f6;
+      border: 1.5px solid #d1d5db;
+      border-radius: 24px;
+      padding: 9px 20px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #4b5563;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover { border-color: #185FA5; color: #185FA5; }
+    .filter-btn.active {
+      background: #E6F1FB;
+      border-color: #185FA5;
+      color: #0C447C;
+    }
+    .vendor-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .vcard {
+      border: 1.5px solid #d1d5db;
+      border-radius: 14px;
+      padding: 24px 20px;
+      transition: border-color 0.2s;
+    }
+    .vcard:hover { border-color: #185FA5; }
+    .vcard-icon { font-size: 28px; color: #185FA5; margin-bottom: 12px; display: block; }
+    .vcard-name { font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 5px; }
+    .vcard-cat {
+      font-size: 13px;
+      color: #C8501A;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .vcard-desc { font-size: 15px; color: #4b5563; line-height: 1.65; }
+
+    /* ── COUNTDOWN ── */
+    .cd-wrap {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin: 24px 0 36px;
+    }
+    .cd-box {
+      background: rgba(255,255,255,0.12);
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 12px;
+      padding: 18px 22px;
+      text-align: center;
+      min-width: 88px;
+    }
+    .cd-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1;
+    }
+    .cd-lbl {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.8);
+      margin-top: 8px;
+      font-weight: 700;
+    }
+
+    /* ── GRAND OPENING CARD ── */
+    .go-card {
+      background: rgba(255,255,255,0.1);
+      border: 2px solid rgba(255,255,255,0.25);
+      border-radius: 16px;
+      padding: 32px 28px;
+      margin-bottom: 28px;
+    }
+    .go-card-header {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 0;
+    }
+    .go-icon-box {
+      background: #C8501A;
+      border-radius: 12px;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .go-meta {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+    .go-meta-item { display: flex; flex-direction: column; gap: 5px; }
+    .go-meta-lbl {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.6);
+      font-weight: 700;
+    }
+    .go-meta-val { font-size: 17px; font-weight: 700; color: #fff; }
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+    .hl {
+      background: rgba(255,255,255,0.08);
+      border: 1.5px solid rgba(255,255,255,0.18);
+      border-radius: 12px;
+      padding: 20px 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .hl-icon { font-size: 26px; color: #EF9F27; margin-top: 2px; flex-shrink: 0; }
+    .hl-title { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+    .hl-body { font-size: 15px; color: rgba(255,255,255,0.82); line-height: 1.55; }
+
+    /* ── WAITLIST ── */
+    .waitlist-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .wait-badge {
+      background: #E6F1FB;
+      color: #0C447C;
+      font-size: 15px;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 24px 0 28px;
+    }
+    .stat {
+      background: #f3f4f6;
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .stat-num { font-size: 28px; font-weight: 700; color: #185FA5; margin-bottom: 6px; }
+    .stat-lbl { font-size: 15px; color: #4b5563; font-weight: 600; }
+    .perks { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+    .perk { display: flex; align-items: flex-start; gap: 12px; font-size: 17px; color: #374151; font-weight: 600; }
+    .perk i { color: #185FA5; font-size: 20px; margin-top: 2px; }
+    .fcard {
+      background: #fff;
+      border: 1.5px solid #d1d5db;
+      border-radius: 16px;
+      padding: 32px 28px;
+    }
+    .fcard-title { font-size: 20px; font-weight: 700; color: #1a1a1a; margin-bottom: 6px; }
+    .fcard-sub { font-size: 16px; color: #4b5563; margin-bottom: 24px; }
+    .frow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .fcard label {
+      font-size: 14px;
+      font-weight: 700;
+      color: #374151;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .fcard input,
+    .fcard select,
+    .fcard textarea {
+      width: 100%;
+      border: 1.5px solid #d1d5db;
+      border-radius: 9px;
+      padding: 12px 16px;
+      font-size: 15px;
+      background: #fff;
+      color: #1a1a1a;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 14px;
+      transition: border-color 0.2s;
+    }
+    .fcard input:focus,
+    .fcard select:focus,
+    .fcard textarea:focus {
+      outline: none;
+      border-color: #185FA5;
+    }
+    .fcard textarea { height: 90px; resize: none; }
+    .form-note { font-size: 14px; color: #6b7280; text-align: center; margin-top: 14px; font-weight: 600; }
+    .success-msg {
+      display: none;
+      background: #ecfdf5;
+      border: 1.5px solid #6ee7b7;
+      border-radius: 9px;
+      padding: 14px 18px;
+      font-size: 15px;
+      font-weight: 600;
+      color: #065f46;
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    /* ── NEWSLETTER ── */
+    .nl-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+      align-items: center;
+    }
+    .nl-body { font-size: 17px; color: #1e3a5f; line-height: 1.75; margin-top: 14px; }
+    .interests { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+    .int-tag {
+      background: #fff;
+      border: 2px solid #378ADD;
+      border-radius: 24px;
+      padding: 8px 18px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #185FA5;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .int-tag.sel { background: #185FA5; color: #fff; border-color: #185FA5; }
+    .nl-form { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+    .nl-form input {
+      flex: 1;
+      min-width: 160px;
+      border: 1.5px solid #93c5fd;
+      border-radius: 9px;
+      padding: 13px 18px;
+      font-size: 16px;
+      background: #fff;
+      color: #1a1a1a;
+      font-family: 'Inter', sans-serif;
+    }
+    .nl-form input:focus { outline: none; border-color: #185FA5; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0C2340;
+      padding: 56px 40px;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .footer-logo span { color: #C8501A; }
+    .footer-tagline { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.7; }
+    .footer-social { display: flex; gap: 12px; margin-top: 20px; }
+    .footer-social a {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 18px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .footer-social a:hover { background: rgba(255,255,255,0.2); }
+    .footer-heading {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #EF9F27;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-links li {
+      font-size: 15px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .footer-links li:hover { color: #fff; }
+    .footer-bottom {
+      background: #071627;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-bottom p { font-size: 14px; color: rgba(255,255,255,0.45); font-weight: 600; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 48px 20px 44px; }
+      .brand-plaza, .brand-latina { font-size: 64px; }
+      .strip { grid-template-columns: repeat(2, 1fr); }
+      .sec, .sec-dark, .sec-light-blue { padding: 48px 20px; }
+      .about-grid, .waitlist-grid, .nl-grid { grid-template-columns: 1fr; gap: 32px; }
+      .pillars-wrap { padding: 0 20px 48px; }
+      .pillars, .cat-grid, .vendor-grid { grid-template-columns: repeat(2, 1fr); }
+      .highlights { grid-template-columns: 1fr; }
+      footer { grid-template-columns: 1fr 1fr; padding: 40px 20px; }
+      .footer-bottom { padding: 16px 20px; }
+      .divider { margin: 0 20px; }
+    }
+    @media (max-width: 540px) {
+      .brand-plaza, .brand-latina { font-size: 52px; }
+      .hero-tagline { font-size: 22px; }
+      .strip { grid-template-columns: 1fr 1fr; }
+      .cat-grid, .vendor-grid, .pillars { grid-template-columns: 1fr; }
+      .frow { grid-template-columns: 1fr; }
+      footer { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="logo">PLAZA <span>LATINA</span></a>
+    <div class="nav-links">
+      <a href="#vendors">Directory</a>
+      <a href="#events">Grand Opening</a>
+      <a href="#waitlist">Waitlist</a>
+      <a href="#newsletter">Stay Updated</a>
+    </div>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
+        <button class="lang-btn" onclick="setLang('es',this)">ES</button>
+      </div>
+      <a href="#waitlist" class="btn-nav">Join Waitlist</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <svg class="hero-deco" width="240" height="240" viewBox="0 0 240 240" aria-hidden="true">
+      <circle cx="120" cy="120" r="110" fill="none" stroke="#fff" stroke-width="1.5"/>
+      <circle cx="120" cy="120" r="78" fill="none" stroke="#EF9F27" stroke-width="1"/>
+      <circle cx="120" cy="120" r="46" fill="none" stroke="#fff" stroke-width="0.5"/>
+    </svg>
+    <div class="hero-badge">Grand Opening — July 2, 2026</div>
+    <span class="brand-plaza">PLAZA</span>
+    <span class="brand-latina">LATINA</span>
+    <div class="brand-rule"></div>
+    <div class="hero-tagline">Where <em>Culture Lives</em> in Dallas</div>
+    <p class="hero-sub">The heart of the Latino community — 150+ family-owned vendors, live events, food, fashion, and culture all under one roof.</p>
+    <div class="hero-meta">
+      <span class="meta-item"><i class="ti ti-map-pin" aria-hidden="true"></i>Dallas, TX</span>
+      <span class="meta-item"><i class="ti ti-clock" aria-hidden="true"></i>Thu &amp; Mon 11AM–8PM · Fri–Sun 10AM–8PM</span>
+      <span class="meta-item"><i class="ti ti-confetti" aria-hidden="true"></i>Opens July 2, 2026</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#vendors" class="btn-gold">Explore Vendors <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+      <a href="#events" class="btn-white-outline">See Events <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </section>
+
+  <!-- STRIP -->
+  <div class="strip">
+    <div class="strip-item"><i class="ti ti-map-pin strip-icon" aria-hidden="true"></i><div><div class="strip-lbl">Location</div><div class="strip-val">Dallas, Texas</div></div></div>
+    <div class="strip-item"><i class="ti ti-clock strip-icon" aria-hidden="true"></i><div><div class="strip-lbl">Hours</div><div class="strip-val">Thu–Mon · 10AM–8PM</div></div></div>
+    <div class="strip-item"><i class="ti ti-store strip-icon" aria-hidden="true"></i><div><div class="strip-lbl">Vendors</div><div class="strip-val">150+ family-owned</div></div></div>
+    <div class="strip-item"><i class="ti ti-car strip-icon" aria-hidden="true"></i><div><div class="strip-lbl">Parking</div><div class="strip-val">Free · Accessible</div></div></div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="sec" id="about">
+    <div class="about-grid">
+      <div>
+        <div class="sec-tag tag-blue">About Plaza Latina</div>
+        <h2 class="sec-title">Where culture, commerce &amp; community come <em>together.</em></h2>
+        <p class="sec-body" style="margin-bottom:28px;">Plaza Latina is more than a shopping destination — it's the heart of Dallas's Latino community. A place where families, entrepreneurs, and neighbors gather to celebrate, connect, and grow together.</p>
+        <a href="#about" class="btn-outline-blue">Learn more <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+      </div>
+      <div class="about-img">
+        <i class="ti ti-building-store" style="font-size:72px;color:rgba(255,255,255,0.22);" aria-hidden="true"></i>
+        <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:rgba(255,255,255,0.9);padding:0 28px;text-align:center;">A place for everyone</div>
+        <div style="font-size:16px;font-weight:600;color:rgba(255,255,255,0.5);">Dallas, TX · Est. 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PILLARS -->
+  <div class="pillars-wrap" style="padding-top:48px;">
+    <div class="sec-tag tag-blue" style="padding-bottom:4px;">What we offer</div>
+    <div class="pillars">
+      <div class="pillar">
+        <i class="ti ti-shopping-bag pillar-icon" aria-hidden="true"></i>
+        <div class="pillar-title">Shop local</div>
+        <p class="pillar-body">Fashion, beauty, food, jewelry, and specialty goods — all from vendors rooted in our community.</p>
+      </div>
+      <div class="pillar">
+        <i class="ti ti-users pillar-icon" aria-hidden="true"></i>
+        <div class="pillar-title">Family destination</div>
+        <p class="pillar-body">Events, entertainment, and experiences designed for every generation — kids to abuelos.</p>
+      </div>
+      <div class="pillar">
+        <i class="ti ti-music pillar-icon" aria-hidden="true"></i>
+        <div class="pillar-title">Latino culture</div>
+        <p class="pillar-body">We celebrate our heritage through music, art, food, and tradition in every corner of the plaza.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section class="sec-dark">
+    <div class="sec-tag tag-gold">What's inside</div>
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;">
+      <h2 class="sec-title-white">150+ vendors across<br>8 categories.</h2>
+      <a href="#vendors" class="btn-outline-white">Full directory <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card"><i class="ti ti-meat cat-icon" aria-hidden="true"></i><div class="cat-name">Food &amp; Drink</div><div class="cat-desc">Tacos, aguas frescas, birria &amp; more</div></div>
+      <div class="cat-card"><i class="ti ti-hanger cat-icon" aria-hidden="true"></i><div class="cat-name">Fashion</div><div class="cat-desc">Streetwear, boutique &amp; cultural fits</div></div>
+      <div class="cat-card"><i class="ti ti-diamond cat-icon" aria-hidden="true"></i><div class="cat-name">Jewelry</div><div class="cat-desc">Handcrafted gold, silver &amp; custom</div></div>
+      <div class="cat-card"><i class="ti ti-sparkles cat-icon" aria-hidden="true"></i><div class="cat-name">Beauty</div><div class="cat-desc">Lashes, nails, hair &amp; makeup</div></div>
+      <div class="cat-card"><i class="ti ti-device-mobile cat-icon" aria-hidden="true"></i><div class="cat-name">Electronics</div><div class="cat-desc">Phone repair, gadgets &amp; accessories</div></div>
+      <div class="cat-card"><i class="ti ti-palette cat-icon" aria-hidden="true"></i><div class="cat-name">Art &amp; Gifts</div><div class="cat-desc">Prints, ceramics &amp; local makers</div></div>
+      <div class="cat-card"><i class="ti ti-scissors cat-icon" aria-hidden="true"></i><div class="cat-name">Services</div><div class="cat-desc">Barbershop, alterations &amp; more</div></div>
+      <div class="cat-card"><i class="ti ti-music cat-icon" aria-hidden="true"></i><div class="cat-name">Events</div><div class="cat-desc">Live music, mariachi &amp; DJ sets</div></div>
+    </div>
+  </section>
+
+  <!-- VENDOR DIRECTORY -->
+  <section class="sec" id="vendors">
+    <div class="sec-tag tag-blue">Vendor directory</div>
+    <h2 class="sec-title">Find your <em>favorites.</em></h2>
+    <div class="filter-bar">
+      <button class="filter-btn active" onclick="filterVendors('all',this)">All</button>
+      <button class="filter-btn" onclick="filterVendors('food',this)">Food &amp; Drink</button>
+      <button class="filter-btn" onclick="filterVendors('fashion',this)">Fashion</button>
+      <button class="filter-btn" onclick="filterVendors('beauty',this)">Beauty</button>
+      <button class="filter-btn" onclick="filterVendors('jewelry',this)">Jewelry</button>
+      <button class="filter-btn" onclick="filterVendors('art',this)">Art &amp; Gifts</button>
+      <button class="filter-btn" onclick="filterVendors('services',this)">Services</button>
+    </div>
+    <div class="vendor-grid" id="vendor-grid">
+      <div class="vcard" data-cat="food"><i class="ti ti-meat vcard-icon" aria-hidden="true"></i><div class="vcard-name">Tacos La Familia</div><div class="vcard-cat">Food &amp; Drink</div><p class="vcard-desc">Handmade tortillas, birria, pastor and all the classics. A taste of home in every bite.</p></div>
+      <div class="vcard" data-cat="fashion"><i class="ti ti-shoe vcard-icon" aria-hidden="true"></i><div class="vcard-name">Cultura Kicks</div><div class="vcard-cat">Fashion</div><p class="vcard-desc">Streetwear and sneakers curated for the culture. Limited drops, exclusive collabs.</p></div>
+      <div class="vcard" data-cat="beauty"><i class="ti ti-sparkles vcard-icon" aria-hidden="true"></i><div class="vcard-name">Glam by Nadia</div><div class="vcard-cat">Beauty</div><p class="vcard-desc">Lashes, nails, and full glam. Walk in fierce, walk out more fierce.</p></div>
+      <div class="vcard" data-cat="food"><i class="ti ti-droplet vcard-icon" aria-hidden="true"></i><div class="vcard-name">Aguas Frescas Bar</div><div class="vcard-cat">Food &amp; Drink</div><p class="vcard-desc">Seasonal aguas frescas, elotes, chamoyadas and paletas made fresh daily.</p></div>
+      <div class="vcard" data-cat="art"><i class="ti ti-palette vcard-icon" aria-hidden="true"></i><div class="vcard-name">Arte y Alma</div><div class="vcard-cat">Art &amp; Gifts</div><p class="vcard-desc">Original prints, candles, and handcrafted goods from local Latino artists.</p></div>
+      <div class="vcard" data-cat="services"><i class="ti ti-scissors vcard-icon" aria-hidden="true"></i><div class="vcard-name">Kings Barbershop</div><div class="vcard-cat">Services</div><p class="vcard-desc">Precision fades, lineups, and styles. Walk-ins welcome, appointments preferred.</p></div>
+      <div class="vcard" data-cat="fashion"><i class="ti ti-hanger vcard-icon" aria-hidden="true"></i><div class="vcard-name">La Boutique</div><div class="vcard-cat">Fashion</div><p class="vcard-desc">Trendy fits for women. From casual everyday to quince-ready looks.</p></div>
+      <div class="vcard" data-cat="jewelry"><i class="ti ti-diamond vcard-icon" aria-hidden="true"></i><div class="vcard-name">Joyería Dorada</div><div class="vcard-cat">Jewelry</div><p class="vcard-desc">Handcrafted gold and silver pieces, custom engravings, and quinceañera sets.</p></div>
+      <div class="vcard" data-cat="services"><i class="ti ti-device-mobile vcard-icon" aria-hidden="true"></i><div class="vcard-name">TechBarrio</div><div class="vcard-cat">Electronics</div><p class="vcard-desc">Phone repairs, accessories, cables, cases, and the latest gadgets. Fast service.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:36px;">
+      <a href="#vendors" class="btn-outline-blue">View full directory <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+    </div>
+  </section>
+
+  <!-- GRAND OPENING -->
+  <section class="sec-dark" id="events">
+    <div class="sec-tag tag-gold">Grand opening</div>
+    <h2 class="sec-title-white">Grand Opening <em>Celebration</em></h2>
+    <p class="sec-body-white" style="max-width:540px;margin-bottom:24px;">The wait is over. Plaza Latina opens its doors for the first time — celebrating in true familia style. Join us for a full day of food, music, community, and unforgettable moments.</p>
+    <div style="font-size:15px;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,0.75);margin-bottom:14px;font-weight:700;">Grand opening in</div>
+    <div class="cd-wrap">
+      <div class="cd-box"><div class="cd-num" id="cd-d">--</div><div class="cd-lbl">Days</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-h">--</div><div class="cd-lbl">Hours</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-m">--</div><div class="cd-lbl">Mins</div></div>
+      <div class="cd-box"><div class="cd-num" id="cd-s">--</div><div class="cd-lbl">Secs</div></div>
+    </div>
+    <div class="go-card">
+      <div class="go-card-header">
+        <div class="go-icon-box"><i class="ti ti-confetti" style="font-size:28px;color:#fff;" aria-hidden="true"></i></div>
+        <div style="flex:1;">
+          <div style="font-size:22px;font-weight:700;color:#fff;">Grand Opening Celebration</div>
+          <div style="font-size:16px;color:rgba(255,255,255,0.75);font-weight:600;margin-top:4px;">July 2, 2026 · All day event</div>
+        </div>
+        <a href="#newsletter" class="btn-orange">RSVP — It's Free <i class="ti ti-arrow-right" aria-hidden="true"></i></a>
+      </div>
+      <div class="go-meta">
+        <div class="go-meta-item"><div class="go-meta-lbl">Date</div><div class="go-meta-val">July 2, 2026</div></div>
+        <div class="go-meta-item"><div class="go-meta-lbl">Hours</div><div class="go-meta-val">10 AM – 10 PM</div></div>
+        <div class="go-meta-item"><div class="go-meta-lbl">Admission</div><div class="go-meta-val">Free Entry</div></div>
+        <div class="go-meta-item"><div class="go-meta-lbl">Who's invited</div><div class="go-meta-val">All Ages</div></div>
+      </div>
+    </div>
+    <div class="highlights">
+      <div class="hl"><i class="ti ti-music hl-icon" aria-hidden="true"></i><div><div class="hl-title">Live Mariachi</div><div class="hl-body">Traditional mariachi performing live all evening — the sound of celebration.</div></div></div>
+      <div class="hl"><i class="ti ti-headphones hl-icon" aria-hidden="true"></i><div><div class="hl-title">DJ Set</div><div class="hl-body">Reggaeton, cumbia, and throwbacks keeping energy alive open to close.</div></div></div>
+      <div class="hl"><i class="ti ti-gift hl-icon" aria-hidden="true"></i><div><div class="hl-title">Prizes &amp; Raffles</div><div class="hl-body">Big giveaways, vendor gift cards, and surprise prizes throughout the day.</div></div></div>
+      <div class="hl"><i class="ti ti-tools-kitchen-2 hl-icon" aria-hidden="true"></i><div><div class="hl-title">Food &amp; Drinks</div><div class="hl-body">All 150+ vendors open — samples, specials, and grand opening deals all day.</div></div></div>
+    </div>
+  </section>
+
+  <!-- WAITLIST -->
+  <section class="sec" id="waitlist">
+    <div class="waitlist-grid">
+      <div>
+        <div class="wait-badge"><i class="ti ti-clock" style="font-size:17px;" aria-hidden="true"></i>Current wait: 2–3 years</div>
+        <div class="sec-tag tag-blue">For businesses</div>
+        <h2 class="sec-title">Join the <em>waitlist.</em></h2>
+        <p class="sec-body" style="margin-bottom:22px;">Plaza Latina is one of Dallas's most sought-after retail communities. Space here doesn't come easy — and that's by design.</p>
+        <div class="stats">
+          <div class="stat"><div class="stat-num">150+</div><div class="stat-lbl">Family-owned vendors</div></div>
+          <div class="stat"><div class="stat-num">5</div><div class="stat-lbl">Days a week</div></div>
+          <div class="stat"><div class="stat-num">2–3yr</div><div class="stat-lbl">Avg. wait time</div></div>
+          <div class="stat"><div class="stat-num">100%</div><div class="stat-lbl">Community first</div></div>
+        </div>
+        <ul class="perks">
+          <li class="perk"><i class="ti ti-check" aria-hidden="true"></i>First access when spaces open</li>
+          <li class="perk"><i class="ti ti-check" aria-hidden="true"></i>Priority review for your application</li>
+          <li class="perk"><i class="ti ti-check" aria-hidden="true"></i>Updates on Plaza expansion plans</li>
+        </ul>
+      </div>
+      <div class="fcard">
+        <div class="fcard-title">Get on the list</div>
+        <div class="fcard-sub">Space is rare. Submit your interest now.</div>
+        <form id="waitlist-form" onsubmit="submitWaitlist(event)">
+          <div class="frow">
+            <div><label for="wl-first">First name</label><input type="text" id="wl-first" placeholder="Maria" required></div>
+            <div><label for="wl-last">Last name</label><input type="text" id="wl-last" placeholder="Rodriguez" required></div>
+          </div>
+          <label for="wl-biz">Business name</label>
+          <input type="text" id="wl-biz" placeholder="Your business name" required>
+          <label for="wl-email">Email</label>
+          <input type="email" id="wl-email" placeholder="you@example.com" required>
+          <label for="wl-phone">Phone</label>
+          <input type="tel" id="wl-phone" placeholder="(214) 555-0100">
+          <label for="wl-type">Business type</label>
+          <select id="wl-type" required>
+            <option value="">Select category…</option>
+            <option>Food &amp; Drink</option>
+            <option>Fashion &amp; Apparel</option>
+            <option>Beauty &amp; Wellness</option>
+            <option>Art &amp; Gifts</option>
+            <option>Services</option>
+            <option>Other</option>
+          </select>
+          <label for="wl-msg">About your business</label>
+          <textarea id="wl-msg" placeholder="Tell us about your business…"></textarea>
+          <button type="submit" class="btn-blue" style="width:100%;justify-content:center;padding:17px;font-size:17px;">
+            Join the Waitlist <i class="ti ti-lock" aria-hidden="true"></i>
+          </button>
+          <div id="waitlist-success" class="success-msg">
+            <i class="ti ti-check" aria-hidden="true"></i> You're on the list! We'll reach out when a space opens up.
+          </div>
+          <p class="form-note">Adding your name does not guarantee placement.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="sec-light-blue" id="newsletter">
+    <div class="nl-grid">
+      <div>
+        <div class="sec-tag tag-blue">Stay connected</div>
+        <h2 class="sec-title sec-title-dark">Never miss<br>a moment.</h2>
+        <p class="nl-body">Events, vendor spotlights, deals, and community news — straight to your inbox. <strong>En español también.</strong></p>
+      </div>
+      <div>
+        <div style="font-size:16px;font-weight:700;color:#1e3a5f;margin-bottom:12px;">I'm interested in:</div>
+        <div class="interests">
+          <span class="int-tag" onclick="this.classList.toggle('sel')">Events</span>
+          <span class="int-tag" onclick="this.classList.toggle('sel')">New vendors</span>
+          <span class="int-tag" onclick="this.classList.toggle('sel')">Grand opening</span>
+          <span class="int-tag" onclick="this.classList.toggle('sel')">Deals &amp; offers</span>
+          <span class="int-tag" onclick="this.classList.toggle('sel')">Leasing</span>
+        </div>
+        <form id="nl-form" onsubmit="submitNewsletter(event)">
+          <div class="nl-form">
+            <input type="text" placeholder="Full name" required>
+            <input type="email" placeholder="Email address" required>
+          </div>
+          <button type="submit" class="btn-blue" style="width:100%;justify-content:center;padding:17px;font-size:17px;">
+            Subscribe <i class="ti ti-arrow-right" aria-hidden="true"></i>
+          </button>
+          <div id="nl-success" class="success-msg" style="margin-top:12px;">
+            <i class="ti ti-check" aria-hidden="true"></i> You're on the list! Welcome to Plaza Latina.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer-logo">PLAZA <span>LATINA</span></div>
+      <p class="footer-tagline">Where Culture Lives.<br>Dallas, TX · Opening July 2, 2026.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
+        <a href="#" aria-label="TikTok"><i class="ti ti-brand-tiktok" aria-hidden="true"></i></a>
+        <a href="#" aria-label="Facebook"><i class="ti ti-brand-facebook" aria-hidden="true"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-heading">Visit</div>
+      <ul class="footer-links">
+        <li><a href="#vendors" style="color:inherit;text-decoration:none;">Vendor Directory</a></li>
+        <li><a href="#events" style="color:inherit;text-decoration:none;">Events Calendar</a></li>
+        <li><a href="#about" style="color:inherit;text-decoration:none;">Hours &amp; Location</a></li>
+        <li>Parking Info</li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Business</div>
+      <ul class="footer-links">
+        <li><a href="#waitlist" style="color:inherit;text-decoration:none;">Join the Waitlist</a></li>
+        <li>Vendor Application</li>
+        <li>Advertise With Us</li>
+        <li>Partner Programs</li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Connect</div>
+      <ul class="footer-links">
+        <li><a href="#newsletter" style="color:inherit;text-decoration:none;">Newsletter</a></li>
+        <li>Contact Us</li>
+        <li>Press &amp; Media</li>
+        <li>Careers</li>
+      </ul>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <p>© 2026 Plaza Latina. Dallas, TX. All rights reserved. · Privacy Policy · Terms of Use</p>
+    <div class="lang-toggle">
+      <button class="lang-btn active" onclick="setLang('en',this)">EN</button>
+      <button class="lang-btn" onclick="setLang('es',this)">ES</button>
+    </div>
+  </div>
+
+  <script>
+    /* ── COUNTDOWN ── */
+    function tick() {
+      var target = new Date('2026-07-02T10:00:00');
+      var now = new Date();
+      var diff = target - now;
+      if (diff <= 0) {
+        ['d','h','m','s'].forEach(function(x){ document.getElementById('cd-'+x).textContent='00'; });
+        return;
+      }
+      document.getElementById('cd-d').textContent = String(Math.floor(diff/86400000)).padStart(2,'0');
+      document.getElementById('cd-h').textContent = String(Math.floor(diff%86400000/3600000)).padStart(2,'0');
+      document.getElementById('cd-m').textContent = String(Math.floor(diff%3600000/60000)).padStart(2,'0');
+      document.getElementById('cd-s').textContent = String(Math.floor(diff%60000/1000)).padStart(2,'0');
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    /* ── VENDOR FILTER ── */
+    function filterVendors(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.querySelectorAll('.vcard').forEach(function(card) {
+        card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
+      });
+    }
+
+    /* ── FORMS ── */
+    function submitWaitlist(e) {
+      e.preventDefault();
+      document.getElementById('waitlist-success').style.display = 'block';
+      e.target.querySelector('button[type=submit]').disabled = true;
+    }
+    function submitNewsletter(e) {
+      e.preventDefault();
+      document.getElementById('nl-success').style.display = 'block';
+      e.target.querySelector('button[type=submit]').disabled = true;
+    }
+
+    /* ── LANG TOGGLE (visual only — wire up translations as needed) ── */
+    function setLang(lang, btn) {
+      document.querySelectorAll('.lang-btn').forEach(function(b){ b.classList.remove('active'); });
+      document.querySelectorAll('.lang-btn').forEach(function(b){
+        if(b.textContent.toLowerCase() === lang) b.classList.add('active');
+      });
+    }
+  </script>
+</body>
+</html>
